@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from django.http import HttpResponse
 from .models import Pokemon
 # Create your views here.
+
+class PokemonCreate(CreateView):
+    model = Pokemon
+    fields = '__all__'
+    success_url = '/pokemon/'
 
 def home(request):
     return HttpResponse('<h1>Hello</h1>')
